@@ -10,7 +10,7 @@ class AvailableController {
       where: {
         provider_id: req.params.provider,
         date: {
-          [Op.between]: [
+          [ Op.between ]: [
             date.startOf('day').format(),
             date.endOf('day').format()
           ]
@@ -33,7 +33,7 @@ class AvailableController {
     ]
 
     const available = schedule.map(time => {
-      const [hour, minute] = time.split(':')
+      const [ hour, minute ] = time.split(':')
       const value = date
         .hour(hour)
         .minute(minute)
